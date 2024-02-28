@@ -17,19 +17,19 @@ pipeline {
   
     stage('Start container') {
       steps {
-        sh 'docker compose up -d --no-color --wait'
+        sh 'docker compose up -d'
         sh 'docker compose ps'
       }
     }
     stage('Run tests against the container') {
       steps {
-        sh 'curl http://localhost:3000/param?query=demo | jq'
+        sh 'curl http://localhost:8082/index.html'
       }
     }
   }
   post {
     always {
-      sh 'docker compose down --remove-orphans -v'
+      sh 'docker compose down'
       sh 'docker compose ps'
     }
   }
