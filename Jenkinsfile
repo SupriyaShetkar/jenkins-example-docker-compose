@@ -1,5 +1,7 @@
 pipeline {
-  agent 'docker_000140'
+  agent {
+        label 'docker_000140'
+  }
   stages {
     stage("verify tooling") {
       steps {
