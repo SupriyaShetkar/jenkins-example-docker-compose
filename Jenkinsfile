@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent 'docker_000140'
   stages {
     stage("verify tooling") {
       steps {
