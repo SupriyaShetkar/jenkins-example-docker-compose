@@ -2,7 +2,7 @@ pipeline {
   agent {
         label 'docker_000140'
   }
-  stages {
+ 
     stage("verify tooling") {
       steps {
         sh '''
@@ -23,14 +23,7 @@ pipeline {
         sh 'curl http://localhost:8082/index.html'
       }
     }
-    stage('Push image to Docker Hub') {
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-jenkins') {
-                        docker.image('website1:v2').push('latest')
-                    }
-                }
-            }
+   
   }
   }
   post {
