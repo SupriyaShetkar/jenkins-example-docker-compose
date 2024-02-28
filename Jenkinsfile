@@ -7,8 +7,7 @@ pipeline {
       steps {
         sh '''
           docker version
-          docker info
-          docker compose version 
+          docker info 
           curl --version
           jq --version
         '''
@@ -17,8 +16,8 @@ pipeline {
   
     stage('Start container') {
       steps {
-        sh 'docker compose up -d'
-        sh 'docker compose ps'
+        sh 'docker-compose up -d'
+        sh 'docker-compose ps'
       }
     }
     stage('Run tests against the container') {
@@ -29,8 +28,8 @@ pipeline {
   }
   post {
     always {
-      sh 'docker compose down'
-      sh 'docker compose ps'
+      sh 'docker-compose down'
+      sh 'docker-compose ps'
     }
   }
 }
