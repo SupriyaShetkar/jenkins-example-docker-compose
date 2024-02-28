@@ -1,8 +1,10 @@
 version: '3'
+
 services:
-  echo-server:
-    image: ealen/echo-server:latest
-    environment:
-      - ENABLE__ENVIRONMENT=false
-    ports:
-      - 3000:80
+    web:
+      image: website1
+      build: .
+      container_name: my-static-site
+      restart: always
+      ports:
+       - "8082:80"
