@@ -5,7 +5,7 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 # Expose port 80 to the outside world
-EXPOSE 8080
+EXPOSE 80
 
 # Command to run the web server
 CMD ["nginx", "-g", "daemon off;"]
